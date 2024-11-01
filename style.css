@@ -70,19 +70,22 @@ body {
 
 /* Barra de Pesquisa */
 .search-bar {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
   padding: 15px;
   background: #2c2f33;
+  width: 100%;
 }
 
 .search-bar input {
-  width: 80%;
+  flex-grow: 1; /* Permite que o input ocupe o máximo de espaço possível */
   padding: 12px;
   border: none;
   border-radius: 20px 0 0 20px;
   font-size: 16px;
   color: #111;
+  min-width: 0; /* Evita que o input quebre a linha */
 }
 
 .search-bar button {
@@ -93,10 +96,26 @@ body {
   border-radius: 0 20px 20px 0;
   cursor: pointer;
   transition: background 0.3s;
+  flex-shrink: 0; /* Garante que o botão não diminua */
 }
 
 .search-bar button:hover {
   background: #ff6d00;
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 10px;
+  }
+
+  .search-bar input {
+    border-radius: 20px; /* Arredonda as bordas no mobile */
+    margin-right: 5px;
+  }
+
+  .search-bar button {
+    border-radius: 20px;
+  }
 }
 
 /* Área de Conquistas */
